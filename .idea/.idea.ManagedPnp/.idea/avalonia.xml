@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="ManagedPnp.Avalonia/App.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/AppStyles.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Core/Dialogs/PinDeviceDialog.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Core/Errors/ErrorView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/Devices/DeviceListPage.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/Devices/DeviceListView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/Devices/Styles.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/Errors/ErrorView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/ManagedDeviceList/ManagedDeviceListView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDeviceList/PnpDeviceDetailsView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDeviceList/PnpDeviceListView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDeviceList/Styles.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/DetailsView/PinDeviceDialogWindow.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/DetailsView/PnpDeviceDetailsView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/ListView/PnpDeviceListView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/PnpDeviceDetailsView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/PnpDeviceListView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/PnpDevicesPage.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/PnpDevicesView.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/PnpDevices/Styles.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Features/QuickActions/QuickActionsPage.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/MainWindow.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+        <entry key="ManagedPnp.Avalonia/Views/MainWindow.axaml" value="ManagedPnp.Avalonia/ManagedPnp.Avalonia.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

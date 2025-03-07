@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:errors="clr-namespace:ManagedPnp.Avalonia.Core.Errors"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ManagedPnp.Avalonia.Core.Errors.ErrorView"
+             x:DataType="errors:ErrorViewModel">
+
+    <Design.DataContext>
+        <errors:ErrorViewModel />
+    </Design.DataContext>
+
+    <Expander Header="{Binding Message}" HorizontalAlignment="Stretch">
+        <StackPanel DataContext="{Binding Error}"
+                    Orientation="Vertical">
+            <SelectableTextBlock Text="{Binding Code}" />
+            <Separator Margin="0" />
+            <SelectableTextBlock Text="{Binding Description}" />
+        </StackPanel>
+    </Expander>
+</UserControl>

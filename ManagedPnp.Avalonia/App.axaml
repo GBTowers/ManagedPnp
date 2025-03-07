@@ -1,0 +1,39 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:errors1="clr-namespace:ManagedPnp.Avalonia.Core.Errors"
+             xmlns:avalonia="clr-namespace:ManagedPnp.Avalonia"
+             xmlns:devices="clr-namespace:ManagedPnp.Avalonia.Features.Devices"
+             x:Class="ManagedPnp.Avalonia.App"
+             RequestedThemeVariant="Dark">
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+    <Application.Resources>
+        <FontFamily x:Key="FontAwesomeRegular">avares://ManagedPnp.Avalonia/Assets/Fonts#Font Awesome 6 Free Regular</FontFamily>
+        <FontFamily x:Key="FontAwesomeSolid">avares://ManagedPnp.Avalonia/Assets/Fonts#Font Awesome 6 Free Solid</FontFamily>
+    </Application.Resources>
+
+    <Application.DataTemplates>
+        <DataTemplate DataType="{x:Type devices:DeviceListViewModel}">
+            <devices:DeviceListView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type errors1:ErrorViewModel}">
+            <errors1:ErrorView />
+        </DataTemplate>
+    </Application.DataTemplates>
+
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon x:DataType="avalonia:App"
+                      Icon="/Assets/avalonia-logo.ico"
+                      ToolTipText="ManagedPnp" Clicked="TrayIcon_OnClicked">
+                <TrayIcon.Menu>
+                    <NativeMenu>
+                        <NativeMenuItem Header="Exit" Click="ExitOption_OnClick"/>
+                    </NativeMenu>
+                </TrayIcon.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
+</Application>

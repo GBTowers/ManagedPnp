@@ -1,0 +1,131 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pnpDevices="clr-namespace:ManagedPnp.Avalonia.Features.Devices"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ManagedPnp.Avalonia.Features.Devices.DeviceListView"
+             x:DataType="pnpDevices:DeviceListViewModel">
+
+    <Design.DataContext>
+        <pnpDevices:DeviceListViewModel />
+    </Design.DataContext>
+
+    <Interaction.Behaviors>
+        <EventTriggerBehavior EventName="Loaded">
+            <InvokeCommandAction Command="{Binding LoadCommand}" />
+        </EventTriggerBehavior>
+    </Interaction.Behaviors>
+
+    <UserControl.Styles>
+        <StyleInclude Source="/Features/Devices/Styles.axaml" />
+    </UserControl.Styles>
+
+    <Grid ColumnDefinitions="*,3,*">
+        
+        <Grid Grid.Column="0" RowDefinitions="Auto,Auto,*" ColumnDefinitions="*,Auto">
+            <!-- Search Box -->
+            <AutoCompleteBox Grid.Row="0"
+                             ItemsSource="{Binding Devices}"
+                             FilterMode="Contains" HorizontalAlignment="Stretch"
+                             SelectedItem="{Binding SelectedDevice, Mode=TwoWay}"
+                             Margin="5"
+                             Watermark="Search Device"
+                             CornerRadius="0">
+            </AutoCompleteBox>
+
+            <!-- Refresh Button -->
+            <Button Grid.Column="1" Grid.Row="0"
+                    Margin="5" Padding="10"
+                    Command="{Binding UpdateDevicesCommand}"
+                    ToolTip.Tip="Refresh Devices">
+                <TextBlock Classes="IconSolid" Text="&#xf2f1;" />
+            </Button>
+
+            <!-- Error view -->
+            <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            Content="{Binding Error}"
+                            HorizontalAlignment="Stretch"
+                            IsVisible="{Binding HasError}" />
+
+            <!-- Items view -->
+            <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                     ItemsSource="{Binding Devices}"
+                     SelectedItem="{Binding SelectedDevice, Mode=TwoWay}"
+                     AutoScrollToSelectedItem="True"
+                     Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Classes="header" Text="{Binding DeviceDescription}"
+                                       FontSize="16" />
+                            <Separator Margin="0,5" />
+                            <TextBlock FontSize="13" Text="{Binding ClassName}" />
+                            <TextBlock FontSize="13" Text="{Binding Status}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <GridSplitter Grid.Column="1"
+                      ResizeBehavior="PreviousAndNext"
+                      ResizeDirection="Columns"
+                      Background="#181818" />
+        <!-- Device Info -->
+        <HeaderedContentControl Grid.Column="2" Margin="20">
+            <HeaderedContentControl.Header>
+                <Grid ColumnDefinitions="Auto, *"
+                      Margin="0, 5" HorizontalAlignment="Center">
+                    <TextBlock Grid.Column="0"
+                               Classes="IconSolid" Text="&#xf0a0;" FontSize="18"
+                               Margin="3" />
+                    <TextBlock Grid.Column="1" Classes="header"
+                               Text="{Binding SelectedDevice.DeviceDescription,
+                           FallbackValue=Device}" />
+                </Grid>
+            </HeaderedContentControl.Header>
+            <Grid HorizontalAlignment="Stretch" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*">
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                           Text="{Binding SelectedDevice.Status, StringFormat=Status: {0},
+                       FallbackValue=Select a Device to see details}" />
+                <Expander Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Margin="0,10"
+                          Header="More Details" HorizontalAlignment="Stretch">
+                    <StackPanel>
+                        <!-- Text property is nullable, so these can stay null until a device is selected -->
+                        <!-- ReSharper disable Xaml.PossibleNullReferenceException -->
+                        <SelectableTextBlock
+                            Text="{Binding SelectedDevice.ClassName, StringFormat=Class: {0}}" />
+
+                        <SelectableTextBlock
+                            Text="{Binding SelectedDevice.InstanceID, StringFormat=Instance ID: {0}}" />
+                        <SelectableTextBlock
+                            Text="{Binding SelectedDevice.ManufacturerName, StringFormat=Manufacturer: {0}}" />
+                        <SelectableTextBlock
+                            Text="{Binding SelectedDevice.ClassGUID, StringFormat=Class GUID: {0}}" />
+                        <SelectableTextBlock
+                            Text="{Binding SelectedDevice.DriverName, StringFormat=Driver: {0}}" />
+                        <!-- ReSharper restore Xaml.PossibleNullReferenceException -->
+                    </StackPanel>
+                </Expander>
+                <Button Grid.Column="0" Grid.Row="2"
+                        Content="Enable / Disable" HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Center"
+                        Command="{Binding ChangeDeviceStateCommand}"
+                        CommandParameter="{Binding SelectedDevice}"/>
+                <Button Grid.Row="2" Grid.Column="1"
+                        Content="Pin Device"
+                        Command="{Binding PinDeviceCommand}"
+                        CommandParameter="{Binding SelectedDevice}"
+                        HorizontalAlignment="Right"
+                        HorizontalContentAlignment="Center">
+                </Button>
+            </Grid>
+        </HeaderedContentControl>
+    </Grid>
+</UserControl>

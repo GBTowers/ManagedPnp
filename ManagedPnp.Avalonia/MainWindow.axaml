@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonia="clr-namespace:ManagedPnp.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ManagedPnp.Avalonia.MainWindow"
+        x:DataType="avalonia:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ManagedPnp.Avalonia"
+        x:Name="Window">
+
+    <Design.DataContext>
+        <avalonia:MainViewModel />
+    </Design.DataContext>
+
+    <Grid x:Name="Grid">
+        <ContentControl Content="{Binding Navigation.CurrentViewModel}" />
+    </Grid>
+
+</Window>
